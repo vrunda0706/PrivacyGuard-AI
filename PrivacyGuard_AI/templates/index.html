@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PrivacyGuard AI</title>
+<link rel="stylesheet" href="/static/style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="shell">
+<aside class="sidebar">
+  <div class="logo">✦ <span>PrivacyGuard <b>AI</b></span></div>
+  <button class="nav active" data-target="dashboard">⌂ Dashboard</button>
+  <button class="nav" data-target="scan">◉ Exposure Scan</button>
+  <button class="nav" data-target="permissions">▣ Permission Checker</button>
+  <button class="nav" data-target="history">◷ Scan History</button>
+  <button class="nav" data-target="actions">✓ Action Plan</button>
+  <div class="side-note">🔒 Local prototype<br><small>Do not enter passwords or OTPs.</small></div>
+</aside>
+<main>
+<header><div class="mobile-logo">PrivacyGuard <b>AI</b></div><span>Privacy & Security Monitor</span></header>
+
+<section id="dashboard" class="view active">
+<div class="hero"><div><small class="eyebrow">AI-POWERED PRIVACY MONITOR</small><h1>Your data.<br><em>Your control.</em></h1><p>Analyze potential exposure signals, assess privacy risks and receive an actionable security plan.</p><button class="primary" onclick="show('scan')">Start exposure scan →</button></div>
+<div class="score"><div class="ring"><strong id="dashScore">72</strong><small>/100</small></div><b>Privacy Score</b><span>Good — improve with the action plan</span></div></div>
+<h2>Exposure Summary</h2><div class="cards">
+<div class="card"><i>✉</i><span>Email exposures<strong id="dashEmail">5</strong></span></div>
+<div class="card"><i>☎</i><span>Phone exposures<strong id="dashPhone">3</strong></span></div>
+<div class="card"><i>⚠</i><span>Data incidents<strong id="dashBreach">4</strong></span></div>
+<div class="card"><i>▦</i><span>High-risk apps<strong id="dashApps">2</strong></span></div>
+</div>
+<div class="grid2"><div class="panel"><h2>Exposure trend</h2><canvas id="chart"></canvas></div><div class="panel"><h2>Why it matters</h2><div class="tip">🛡 <b>Data breach</b><p>Exposed credentials can increase account-takeover risk.</p></div><div class="tip">🔐 <b>Permissions</b><p>Apps should only receive access they actually need.</p></div><div class="tip">🤖 <b>AI insights</b><p>The ML component prioritizes risk and generates next steps.</p></div></div></div>
+</section>
+
+<section id="scan" class="view">
+<div class="title"><small class="eyebrow">EXPOSURE SCAN</small><h1>Analyze potential exposure</h1><p>Use test data for this portfolio prototype. Never enter passwords, OTPs or payment details.</p></div>
+<div class="grid2"><div class="panel form"><label>Email</label><input id="email" value="demo@example.com"><label>Phone (optional)</label><input id="phone" value="+91 90000 00000"><button class="primary full" onclick="scan()">Run AI analysis</button><div id="status"></div></div>
+<div class="panel"><h2>Latest report</h2><div class="big"><strong id="reportScore">72</strong><small>/100</small></div><div class="bar"><i id="bar"></i></div><div class="rows"><p>Email findings <b id="rEmail">—</b></p><p>Phone findings <b id="rPhone">—</b></p><p>Data incidents <b id="rBreach">—</b></p><p>ML risk <b id="rRisk">—</b></p></div><div id="mlText" class="notice">Run a scan to generate the ML assessment.</div></div></div>
+<div class="panel"><h2>AI-generated action plan</h2><div id="recommendations" class="recs"><p>Recommendations will appear here after a scan.</p></div></div>
+</section>
+
+<section id="permissions" class="view">
+<div class="title"><small class="eyebrow">PERMISSION CHECKER</small><h1>Assess app permissions</h1><p>Select the permissions an app requests.</p></div>
+<div class="panel permission-form">
+<label><input type="checkbox" value="location"> Location</label><label><input type="checkbox" value="contacts"> Contacts</label><label><input type="checkbox" value="camera"> Camera</label><label><input type="checkbox" value="microphone"> Microphone</label><label><input type="checkbox" value="storage"> Storage</label><label><input type="checkbox" value="notifications"> Notifications</label>
+<button class="primary" onclick="checkPermissions()">Analyze permissions</button><div id="permResult" class="notice">No analysis yet.</div></div>
+</section>
+
+<section id="history" class="view"><div class="title"><small class="eyebrow">SCAN HISTORY</small><h1>Previous analyses</h1><p>Stored locally in SQLite for this prototype.</p></div><div class="panel"><button class="ghost" onclick="loadHistory()">↻ Refresh</button><div id="historyTable"></div></div></section>
+
+<section id="actions" class="view"><div class="title"><small class="eyebrow">ACTION PLAN</small><h1>Improve your privacy posture</h1><p>Complete these practical steps.</p></div><div id="actionList" class="actions">
+<label><input type="checkbox"> Enable MFA on important accounts</label>
+<label><input type="checkbox"> Review reused passwords</label>
+<label><input type="checkbox"> Remove unnecessary app permissions</label>
+<label><input type="checkbox"> Review old online accounts</label>
+<label><input type="checkbox"> Reduce public personal information</label>
+<label><input type="checkbox"> Review account security alerts</label>
+</div></section>
+
+<footer>PrivacyGuard AI · Portfolio prototype · Simulated exposure data · No passwords/OTPs collected</footer>
+</main></div>
+<script src="/static/app.js"></script>
+</body></html>
